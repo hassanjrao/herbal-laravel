@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\FileUploadController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Example Routes
-Route::view('/', 'landing');
-Route::match(['get', 'post'], '/dashboard', function(){
-    return view('dashboard');
+Auth::routes([
+    'register' => false, // Disable registration routes
+    'reset' => false, // Disable password reset routes
+    'verify' => false, // Disable email verification routes
+]);
+
+Route::view('/', 'front.landing');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/ckeditor/upload', [FileUploadController::class, 'upload'])->name('ckeditor.upload');
+
+
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+
+    Route::get('',[AdminDashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
+
+    Route::resource('categories',AdminCategoryController::class);
+
+
 });
-Route::view('/pages/slick', 'pages.slick');
-Route::view('/pages/datatables', 'pages.datatables');
-Route::view('/pages/blank', 'pages.blank');
