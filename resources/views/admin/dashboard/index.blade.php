@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('page-title','Dashboard')
+@section('page-name','Dashboard')
 
 @section('content')
     <!-- Hero -->

@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCommentController;
+use App\Http\Controllers\AdminContactUsController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminItemController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +47,8 @@ Route::prefix('items')->name('items.')->group(function () {
 });
 
 Route::post('comments/{item}', [CommentController::class, 'store'])->name('comments.store');
+Route::get('contact-us',[ContactUsController::class, 'index'])->name('contact-us.index');
+Route::post('contact-us',[ContactUsController::class, 'store'])->name('contact-us.store');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
@@ -57,5 +61,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::patch('comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
     Route::patch('comments/{comment}/disapprove', [AdminCommentController::class, 'disapprove'])->name('comments.disapprove');
     Route::delete('comments/{comment}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
+
+    Route::get('contact-us', [AdminContactUsController::class, 'index'])->name('contact-us.index');
+    Route::delete('contact-us/{contactUs}', [AdminContactUsController::class, 'destroy'])->name('contact-us.destroy');
 
 });

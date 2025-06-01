@@ -77,7 +77,7 @@
                                     <a href="about.html">about Us</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="contact.html"> Contact Us</a>
+                                    <a href="{{ route('contact-us.index') }}"> Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -172,8 +172,8 @@
                                 <nav>
                                     <ul>
                                         <li><a href="{{ route('landing') }}">Home</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="contact.html">About Us</a></li>
+                                        <li><a href="{{ route('contact-us.index') }}">Contact Us</a></li>
+                                        <li><a href="{{ route('contact-us.index') }}">About Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -209,18 +209,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
-                        <div class="footer_payment">
-                            <ul>
-                                <li><a href="#"><img src="{{ asset('front-assets/img/icon/paypal1.jpg') }}"
-                                            alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('front-assets/img/icon/paypal2.jpg') }}"
-                                            alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('front-assets/img/icon/paypal3.jpg') }}"
-                                            alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('front-assets/img/icon/paypal4.jpg') }}"
-                                            alt=""></a></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
