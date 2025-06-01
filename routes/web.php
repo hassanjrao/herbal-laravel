@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AdminAboutUsController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\AdminContactUsController;
@@ -50,6 +52,8 @@ Route::post('comments/{item}', [CommentController::class, 'store'])->name('comme
 Route::get('contact-us',[ContactUsController::class, 'index'])->name('contact-us.index');
 Route::post('contact-us',[ContactUsController::class, 'store'])->name('contact-us.store');
 
+Route::get('about-us',[AboutUsController::class, 'index'])->name('about-us.index');
+
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
     Route::get('',[AdminDashboardController::class, 'index'])->name('dashboard.index');
@@ -64,5 +68,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
 
     Route::get('contact-us', [AdminContactUsController::class, 'index'])->name('contact-us.index');
     Route::delete('contact-us/{contactUs}', [AdminContactUsController::class, 'destroy'])->name('contact-us.destroy');
+
+    Route::resource('about-us', AdminAboutUsController::class)->only(['index', 'update']);
 
 });

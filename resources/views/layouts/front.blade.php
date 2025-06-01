@@ -74,7 +74,7 @@
                                     <a href="{{ route('landing') }}">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="about.html">about Us</a>
+                                    <a href="{{ route('about-us.index') }}">About Us</a>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="{{ route('contact-us.index') }}"> Contact Us</a>
@@ -173,7 +173,7 @@
                                     <ul>
                                         <li><a href="{{ route('landing') }}">Home</a></li>
                                         <li><a href="{{ route('contact-us.index') }}">Contact Us</a></li>
-                                        <li><a href="{{ route('contact-us.index') }}">About Us</a></li>
+                                        <li><a href="{{ route('about-us.index') }}">About Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
