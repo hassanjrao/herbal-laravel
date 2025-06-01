@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('page-name', 'Categories')
+@section('page-name', 'Items')
 @section('css_before')
     <!-- Page JS Plugins CSS -->
 
@@ -16,11 +16,11 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    Categories
+                    Items
                 </h3>
 
 
-                <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Add</a>
+                <a href="{{ route('admin.items.create') }}" class="btn btn-primary">Add</a>
 
 
 
@@ -35,6 +35,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Created At</th>
@@ -47,29 +48,30 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($categories as $ind => $category)
+                            @foreach ($items as $ind => $item)
                                 <tr>
 
                                     <td>{{ $ind + 1 }}</td>
-                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->category->name }}</td>
                                     <td>
-                                        <img src="{{ $category->image_url }}" alt="" width="100px">
+                                        <img src="{{ $item->image_url }}" alt="" width="100px">
                                     </td>
-                                    <td>{{ $category->short_description }}</td>
+                                    <td>{{ $item->short_description }}</td>
 
-                                    <td>{{ $category->created_at }}</td>
-                                    <td>{{ $category->updated_at }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
 
                                     <td>
-                                        <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-sm btn-primary"
+                                        <a href="{{ route('admin.items.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             data-toggle="tooltip" title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form id="form-{{ $category->id }}"
-                                            action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                        <form id="form-{{ $item->id }}"
+                                            action="{{ route('admin.items.destroy', $item->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="button" onclick="confirmDelete({{ $category->id }})" class="btn btn-sm btn-danger" data-toggle="tooltip"
+                                            <button type="button" onclick="confirmDelete({{ $item->id }})" class="btn btn-sm btn-danger" data-toggle="tooltip"
                                                 title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>

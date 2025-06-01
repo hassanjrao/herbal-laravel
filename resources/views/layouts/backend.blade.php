@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>@yield('page-title') - Admin Panel - {{ config('app.name') }}</title>
+    <title>@yield('page-name') - Admin Panel - {{ config('app.name') }}</title>
 
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
@@ -140,6 +140,22 @@
                                 href="{{ route('admin.categories.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
                                 <span class="nav-main-link-name">Categories</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/items*') ? ' active' : '' }}"
+                                href="{{ route('admin.items.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Items</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/comments*') ? ' active' : '' }}"
+                                href="{{ route('admin.comments.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Comments</span>
                             </a>
                         </li>
 
