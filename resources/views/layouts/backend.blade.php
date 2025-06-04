@@ -175,6 +175,14 @@
                             </a>
                         </li>
 
+                          <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/sliders*') ? ' active' : '' }}"
+                                href="{{ route('admin.sliders.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Sliders</span>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </div>

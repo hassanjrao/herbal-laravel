@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminContactUsController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminItemController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactUsController;
@@ -49,17 +50,17 @@ Route::prefix('items')->name('items.')->group(function () {
 });
 
 Route::post('comments/{item}', [CommentController::class, 'store'])->name('comments.store');
-Route::get('contact-us',[ContactUsController::class, 'index'])->name('contact-us.index');
-Route::post('contact-us',[ContactUsController::class, 'store'])->name('contact-us.store');
+Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us.index');
+Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
 
-Route::get('about-us',[AboutUsController::class, 'index'])->name('about-us.index');
+Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
-    Route::get('',[AdminDashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('', [AdminDashboardController::class, 'index'])->name('dashboard.index');
     Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
-    Route::resource('categories',AdminCategoryController::class);
-    Route::resource('items',AdminItemController::class);
+    Route::resource('categories', AdminCategoryController::class);
+    Route::resource('items', AdminItemController::class);
 
     Route::get('comments', [AdminCommentController::class, 'index'])->name('comments.index');
     Route::patch('comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
@@ -71,4 +72,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
 
     Route::resource('about-us', AdminAboutUsController::class)->only(['index', 'update']);
 
+    Route::resource('sliders', AdminSliderController::class);
 });

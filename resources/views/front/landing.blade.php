@@ -5,6 +5,7 @@
 
     $categories = \App\Models\Category::all();
     $items = \App\Models\Item::latest()->take(8)->get();
+    $sliders = \App\Models\Slider::latest()->get();
 
 @endphp
 
@@ -12,57 +13,25 @@
     <!--slider area start-->
     <section class="slider_section">
         <div class="slider_area owl-carousel">
-            <div class="single_slider d-flex align-items-center"
-                data-bgimg="{{ asset('front-assets/img/slider/slider1.jpg') }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slider_content">
-                                <h1>Vegetables Big Sale</h1>
-                                <h2>Fresh Farm Products</h2>
-                                <p>
-                                    10% certifled-organic mix of fruit and veggies. Perfect for weekly cooking and snacking!
-                                </p>
-                                <a href="shop.html">Read more </a>
+            @foreach ($sliders as $slider)
+                <div class="single_slider d-flex align-items-center"
+                    data-bgimg="{{ $slider->image_url }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="slider_content">
+                                    <h1>{{ $slider->main_heading }}</h1>
+                                    <h2>{{ $slider->sub_heading }}</h2>
+                                    <p>
+                                       {{ $slider->description }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="single_slider d-flex align-items-center"
-                data-bgimg="{{ asset('front-assets/img/slider/slider2.jpg') }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slider_content">
-                                <h1>Fresh Vegetables</h1>
-                                <h2>Natural Farm Products</h2>
-                                <p>
-                                    Widest range of farm-fresh Vegetables, Fruits & seasonal produce
-                                </p>
-                                <a href="shop.html">Read more </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider d-flex align-items-center"
-                data-bgimg="{{ asset('front-assets/img/slider/slider3.jpg') }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slider_content">
-                                <h1>Fresh Tomatoes</h1>
-                                <h2>Natural Farm Products</h2>
-                                <p>
-                                    Natural organic tomatoes make your health stronger. Put your information here
-                                </p>
-                                <a href="shop.html">Read more </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </section>
     <!--slider area end-->
@@ -129,8 +98,7 @@
                                     <figure>
                                         <div class="product_thumb">
                                             <a class="primary_img" href="product-details.html"><img
-                                                    src="{{ $item->image_url }}"
-                                                    alt=""></a>
+                                                    src="{{ $item->image_url }}" alt=""></a>
                                         </div>
                                         <figcaption class="product_content">
                                             <h4 class="product_name"><a href="product-details.html">{{ $item->name }}</a>
