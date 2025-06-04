@@ -161,7 +161,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="call-support">
-                                <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p>
+                                {{-- <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p> --}}
                             </div>
                         </div>
                     </div>
