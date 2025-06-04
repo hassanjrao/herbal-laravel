@@ -71,8 +71,16 @@
                         <div id="menu" class="text-left ">
                             <ul class="offcanvas_main_menu">
                                 <li class="menu-item-has-children active">
-                                    <a href="{{ route('landing') }}">Home</a>
+                                    <a class="active" href="{{ route('landing') }}">Home</a>
                                 </li>
+                                @foreach ($categories as $category)
+                                    <li class="menu-item-has-children">
+                                        <a class="{{ request()->route('category') == $category->id ? 'active' : '' }}"
+                                            href="{{ route('categories.show', $category) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
                                 <li class="menu-item-has-children">
                                     <a href="{{ route('about-us.index') }}">About Us</a>
                                 </li>
@@ -122,24 +130,6 @@
             <div class="header_bottom sticky-header">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-12 col-md-6 mobail_s_block">
-                            <div class="search_container">
-                                <form action="#">
-                                    <div class="hover_category">
-                                        <select class="select_option" name="select" id="categori3">
-                                            <option selected value="1">Select a category</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="search_box">
-                                        <input placeholder="Search product..." type="text">
-                                        <button type="submit"><span class="lnr lnr-magnifier"></span></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
 
                         <div class="col-lg-9">
                             <!--main menu start-->
@@ -147,7 +137,8 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="{{ route('landing') }}" class="{{ request()->is('/') ? ' active' : '' }}">Home
+                                            <a href="{{ route('landing') }}"
+                                                class="{{ request()->is('/') ? ' active' : '' }}">Home
                                             </a>
                                         </li>
                                         @foreach ($categories as $category)
@@ -159,8 +150,10 @@
                                             </li>
                                         @endforeach
 
-                                        <li><a class="{{ request()->is('contact-us') ? ' active' : '' }}" href="{{ route('contact-us.index') }}">Contact Us</a></li>
-                                        <li><a class="{{ request()->is('about-us') ? ' active' : '' }}" href="{{ route('about-us.index') }}">About Us</a></li>
+                                        <li><a class="{{ request()->is('contact-us') ? ' active' : '' }}"
+                                                href="{{ route('contact-us.index') }}">Contact Us</a></li>
+                                        <li><a class="{{ request()->is('about-us') ? ' active' : '' }}"
+                                                href="{{ route('about-us.index') }}">About Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
