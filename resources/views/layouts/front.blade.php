@@ -184,8 +184,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright © 2021 <a href="#">Safira</a> . All Rights Reserved.Design by <a
-                                    href="#">Safira</a></p>
+                            <p>Copyright © 2021 <a href="{{ route('landing') }}">{{ config('app.name') }}</a> . All Rights Reserved.Design by <a
+                                    href="{{ route('landing') }}">{{ config('app.name') }}</a></p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
