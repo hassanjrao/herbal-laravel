@@ -184,7 +184,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright © 2021 <a href="{{ route('landing') }}">{{ config('app.name') }}</a> . All Rights Reserved.Design by <a
+                            <p>Copyright © {{ date('Y') }} <a href="{{ route('landing') }}">{{ config('app.name') }}</a> . All Rights Reserved.Design by <a
                                     href="{{ route('landing') }}">{{ config('app.name') }}</a></p>
                         </div>
                     </div>
