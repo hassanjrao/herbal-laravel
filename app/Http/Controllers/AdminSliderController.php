@@ -76,7 +76,10 @@ class AdminSliderController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $slider=Slider::findorfail($id);
+
+        return view('admin.sliders.add_edit', compact('slider'));
     }
 
     /**
@@ -89,7 +92,7 @@ class AdminSliderController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'nullable|string',
             'main_heading'=>'required',
             'sub_heading'=>'nullable'

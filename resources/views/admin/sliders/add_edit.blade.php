@@ -75,11 +75,11 @@
                                     $required = true;
                                 @endphp
 
-                                @if ($slider && $slider->image_path)
+                                @if ($slider && $slider->image)
                                     @php
                                         $required = false;
                                     @endphp
-                                    <img src="{{ $slider->image_url }}" alt="image" class="img-fluid" style="width: 100px">
+                                    <img src="{{ $slider->image_url }}" alt="image" class="img-fluid">
                                 @endif
 
                                 <label class="form-label" for="label">Image <span class="text-danger">*</span></label>
