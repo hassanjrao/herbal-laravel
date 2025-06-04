@@ -41,9 +41,9 @@ class AdminSliderController extends Controller
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'main_heading'=>'required',
-            'sub_heading'=>'nullable'
+            'sub_heading'=>'required'
         ]);
 
         Slider::create([
@@ -93,9 +93,9 @@ class AdminSliderController extends Controller
     {
         $request->validate([
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'main_heading'=>'required',
-            'sub_heading'=>'nullable'
+            'sub_heading'=>'required'
         ]);
 
         $slider=Slider::findorfail($id);
