@@ -107,14 +107,6 @@
                             <div class="header_right_info">
                                 <div class="search_container mobail_s_none">
                                     <form action="#">
-                                        <div class="hover_category">
-                                            <select class="select_option" name="select" id="categori2">
-                                                <option selected value="1">Select a category</option>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
                                         <div class="search_box">
                                             <input placeholder="Search product..." type="text">
                                             <button type="submit"><span class="lnr lnr-magnifier"></span></button>
@@ -148,32 +140,27 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="categories_menu">
-                                <div class="categories_title">
-                                    <h2 class="categori_toggle">All Cattegories</h2>
-                                </div>
-                                <div class="categories_menu_toggle">
-                                    <ul>
-                                        @foreach ($categories as $category)
-                                            <li>
-                                                <a href="{{ route('categories.show', $category->id) }}">
-                                                    {{ $category->name }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
+
+                        <div class="col-lg-9">
                             <!--main menu start-->
                             <div class="main_menu menu_position">
                                 <nav>
                                     <ul>
-                                        <li><a href="{{ route('landing') }}">Home</a></li>
-                                        <li><a href="{{ route('contact-us.index') }}">Contact Us</a></li>
-                                        <li><a href="{{ route('about-us.index') }}">About Us</a></li>
+                                        <li>
+                                            <a href="{{ route('landing') }}" class="{{ request()->is('/') ? ' active' : '' }}">Home
+                                            </a>
+                                        </li>
+                                        @foreach ($categories as $category)
+                                            <li>
+                                                <a class="{{ request()->route('category') == $category->id ? 'active' : '' }}"
+                                                    href="{{ route('categories.show', $category) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+
+                                        <li><a class="{{ request()->is('contact-us') ? ' active' : '' }}" href="{{ route('contact-us.index') }}">Contact Us</a></li>
+                                        <li><a class="{{ request()->is('about-us') ? ' active' : '' }}" href="{{ route('about-us.index') }}">About Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
