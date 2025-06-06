@@ -82,6 +82,9 @@
                                     </li>
                                 @endforeach
                                 <li class="menu-item-has-children">
+                                    <a href="{{ route('blogs.index') }}">Blogs</a>
+                                </li>
+                                <li class="menu-item-has-children">
                                     <a href="{{ route('about-us.index') }}">About Us</a>
                                 </li>
                                 <li class="menu-item-has-children">
@@ -149,6 +152,8 @@
                                                 </a>
                                             </li>
                                         @endforeach
+                                        <li><a class="{{ request()->is('blogs') ? ' active' : '' }}"
+                                                href="{{ route('blogs.index') }}">Blogs</a></li>
 
                                         <li><a class="{{ request()->is('contact-us') ? ' active' : '' }}"
                                                 href="{{ route('contact-us.index') }}">Contact Us</a></li>
@@ -184,7 +189,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <div class="copyright_area">
-                            <p>Copyright © {{ date('Y') }} <a href="{{ route('landing') }}">{{ config('app.name') }}</a>. All Rights Reserved.</p>
+                            <p>Copyright © {{ date('Y') }} <a
+                                    href="{{ route('landing') }}">{{ config('app.name') }}</a>. All Rights Reserved.
+                            </p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">

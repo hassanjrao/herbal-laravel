@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminAboutUsController;
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\AdminContactUsController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminItemController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactUsController;
@@ -50,6 +52,13 @@ Route::prefix('items')->name('items.')->group(function () {
     Route::get('{item}', [ItemController::class, 'show'])->name('show');
 });
 
+
+Route::prefix('blogs')->name('blogs.')->group(function () {
+    Route::get('', [BlogController::class, 'index'])->name('index');
+    Route::get('{blog}', [BlogController::class, 'show'])->name('show');
+});
+
+
 Route::post('comments/{item}', [CommentController::class, 'store'])->name('comments.store');
 Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us.index');
 Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
@@ -76,4 +85,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::resource('about-us', AdminAboutUsController::class)->only(['index', 'update']);
 
     Route::resource('sliders', AdminSliderController::class);
+
+    Route::resource('blogs',AdminBlogController::class);
 });

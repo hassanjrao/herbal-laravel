@@ -159,7 +159,7 @@
                             </a>
                         </li>
 
-                         <li class="nav-main-item">
+                        <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/contact-us*') ? ' active' : '' }}"
                                 href="{{ route('admin.contact-us.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
@@ -167,7 +167,7 @@
                             </a>
                         </li>
 
-                         <li class="nav-main-item">
+                        <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/about-us*') ? ' active' : '' }}"
                                 href="{{ route('admin.about-us.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
@@ -175,11 +175,19 @@
                             </a>
                         </li>
 
-                          <li class="nav-main-item">
+                        <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/sliders*') ? ' active' : '' }}"
                                 href="{{ route('admin.sliders.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
                                 <span class="nav-main-link-name">Sliders</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/blogs*') ? ' active' : '' }}"
+                                href="{{ route('admin.blogs.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Blogs</span>
                             </a>
                         </li>
 
@@ -364,7 +372,7 @@
                 ckfinder: {
                     uploadUrl: '{{ route('ckeditor.upload') }}'
                 },
-                toolbar: ['bold', 'italic', 'link', 'uploadImage', 'blockQuote', 'undo', 'redo'],
+                toolbar: ['heading','bold', 'italic', 'link', 'uploadImage', 'blockQuote', 'undo', 'redo'],
                 image: {
                     toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
                 }
