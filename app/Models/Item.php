@@ -22,7 +22,7 @@ class Item extends Model
     public function getShortDescriptionAttribute()
     {
         // remove HTML tags and limit to 100 characters
-        return substr(strip_tags($this->description), 0, 100) . '...';
+        return substr(strip_tags($this->description), 0, 150) . '...';
     }
 
     public function category()

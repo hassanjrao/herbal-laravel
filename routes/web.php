@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,8 @@ Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-u
 Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
 
 Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
+
+Route::get('search',[SearchController::class,'search'])->name('search');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 

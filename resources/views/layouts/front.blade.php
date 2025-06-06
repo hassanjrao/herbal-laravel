@@ -114,9 +114,9 @@
                         <div class="col-lg-10 col-md-6 col-sm-7 col-8">
                             <div class="header_right_info">
                                 <div class="search_container mobail_s_none">
-                                    <form action="#">
+                                    <form action="{{ route('search') }}" method="GET">
                                         <div class="search_box">
-                                            <input placeholder="Search product..." type="text">
+                                            <input placeholder="Search ..." name="q" type="text">
                                             <button type="submit"><span class="lnr lnr-magnifier"></span></button>
                                         </div>
                                     </form>

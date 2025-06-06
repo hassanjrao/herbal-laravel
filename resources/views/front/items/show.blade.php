@@ -116,7 +116,9 @@
             <div class="post_meta">
                 <span><b>Tags:</b> </span>
                 @foreach ($item->tags as $tag)
-                    <span><a href="#">{{ $tag->name }}</a></span>@if (!$loop->last), @endif
+                    <span class="badge tags"><a href="{{ route('search', ['q' => $tag->name]) }}">{{ $tag->name }}
+                        </a>
+                    </span>
                 @endforeach
             </div>
         </div>
