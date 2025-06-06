@@ -88,7 +88,7 @@
             <!-- Page Title and Social Icons -->
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h1 class="page-title">{{ $item->name }}</h1>
-                <div class="social-icons">
+                {{-- <div class="social-icons">
                     <a href="">
                         <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email">
                     </a>
@@ -101,7 +101,7 @@
                     <a href="">
                         <img src="https://img.icons8.com/color/48/000000/pinterest--v1.png" alt="Pinterest">
                     </a>
-                </div>
+                </div> --}}
             </div>
             <hr>
 
@@ -112,10 +112,17 @@
             </p>
         </section>
 
-        {{-- last updated --}}
+        <div class="entry_content">
+            <div class="post_meta">
+                <span><b>Tags:</b> </span>
+                @foreach ($item->tags as $tag)
+                    <span><a href="#">{{ $tag->name }}</a></span>@if (!$loop->last), @endif
+                @endforeach
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span><b>Last updated:</b> {{ $item->updated_at->format('F j, Y') }}</span>
-
         </div>
 
         <div class="comments_box mt-5">

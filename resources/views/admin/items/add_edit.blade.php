@@ -6,7 +6,6 @@
 @endphp
 @section('page-name', $addEdit . ' Item ')
 @section('content')
-
     <!-- Page Content -->
     <div class="content content-boxed">
 
@@ -97,6 +96,8 @@
                                 @enderror
                             </div>
 
+
+
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('description', $item ? $item->description : null);
@@ -113,6 +114,27 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <label class="form-label" for="tagInput">Tags</label>
+
+                                <div class="d-flex flex-wrap gap-2 border rounded p-2" id="tagList">
+                                    <!-- Existing tags will be shown here -->
+                                </div>
+
+                                <input type="text" class="form-control mt-2" id="tagInput"
+                                    placeholder="Type a tag and press Enter">
+
+                                <!-- Hidden input to store comma-separated tags -->
+                                <input type="hidden" name="tags" id="tagsInput">
+
+                                @error('tags')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
 
 
                         </div>
@@ -148,6 +170,47 @@
 @endsection
 
 @section('js_after')
+    <script>
+        const tagInput = document.getElementById('tagInput');
+        const tagList = document.getElementById('tagList');
+        const tagsInput = document.getElementById('tagsInput');
 
+        let tags = {!! json_encode(
+            old('tags') ? explode(',', old('tags')) : ($item && $item->tags ? $item->tags->pluck('name')->toArray() : []),
+        ) !!};
 
+        function renderTags() {
+            tagList.innerHTML = '';
+            tags.forEach((tag, index) => {
+                const tagEl = document.createElement('span');
+                tagEl.className = 'badge bg-primary d-flex align-items-center';
+                tagEl.innerHTML = `
+                ${tag}
+                <button type="button" class="btn-close btn-close-white btn-sm ms-2" onclick="removeTag(${index})" aria-label="Remove"></button>
+            `;
+                tagList.appendChild(tagEl);
+            });
+            tagsInput.value = tags.join(',');
+        }
+
+        function removeTag(index) {
+            tags.splice(index, 1);
+            renderTags();
+        }
+
+        tagInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const newTag = this.value.trim();
+                if (newTag && !tags.includes(newTag)) {
+                    tags.push(newTag);
+                    renderTags();
+                }
+                this.value = '';
+            }
+        });
+
+        // Render existing tags on load
+        renderTags();
+    </script>
 @endsection

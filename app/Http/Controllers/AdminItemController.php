@@ -81,7 +81,7 @@ class AdminItemController extends Controller
         $categories = Category::all();
 
 
-        return view('admin.items.add_edit', compact('item','categories'));
+        return view('admin.items.add_edit', compact('item', 'categories'));
     }
 
     /**
@@ -110,6 +110,16 @@ class AdminItemController extends Controller
         }
 
         $item->save();
+
+        $tags = explode(',', $request->input('tags')); // ['tag1', 'tag2']
+
+        // Sync to polymorphic relation
+        $item->tags()->sync(
+            collect($tags)->map(function ($name) {
+                return \App\Models\Tag::firstOrCreate(['name' => trim($name)])->id;
+            })
+        );
+
 
         return redirect()->route('admin.items.index')->withToastSuccess('item updated successfully.');
     }
