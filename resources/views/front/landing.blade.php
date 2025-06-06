@@ -97,11 +97,11 @@
                                 <article class="single_product">
                                     <figure>
                                         <div class="product_thumb">
-                                            <a class="primary_img" href="product-details.html"><img
+                                            <a class="primary_img" href="{{ route('items.show',$item) }}"><img
                                                     src="{{ $item->image_url }}" alt=""></a>
                                         </div>
                                         <figcaption class="product_content">
-                                            <h4 class="product_name"><a href="product-details.html">{{ $item->name }}</a>
+                                            <h4 class="product_name"><a href="{{ route('items.show',$item) }}">{{ $item->name }}</a>
                                             </h4>
                                             <p><a href="#">{{ $item->category->name }}</a></p>
                                         </figcaption>
