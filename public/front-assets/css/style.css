@@ -4194,6 +4194,7 @@ textarea:-ms-input-placeholder {
 
 .product_carousel .product_thumb a img {
     width: 100%;
+    height: 250px;
     margin: 0 auto;
 }
 
