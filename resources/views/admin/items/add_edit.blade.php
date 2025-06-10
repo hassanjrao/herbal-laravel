@@ -60,7 +60,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                                 <?php
                                 $value = old('name', $item ? $item->name : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Name <span class="text-danger">*</span></label>
                                 <input required type="text" value="{{ $value }}" class="form-control"
@@ -101,7 +101,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('description', $item ? $item->description : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Description <span
                                         class="text-danger">*</span></label>
@@ -119,7 +119,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('usage', $item ? $item->usage : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Usage <span class="text-danger">*</span></label>
 
@@ -136,7 +136,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('health_benefits', $item ? $item->health_benefits : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Health Benefits <span
                                         class="text-danger">*</span></label>
@@ -153,7 +153,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('research_support_citations', $item ? $item->research_support_citations : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Research Support & Citations <span
                                         class="text-danger">*</span></label>
@@ -170,15 +170,15 @@
 
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
-                                $value = old('limitation_considerations', $item ? $item->limitation_considerations : null);
-
+                                $value = old('precaution_limitations', $item ? $item->precaution_limitations : null);
+                                
                                 ?>
-                                <label class="form-label" for="label"> Limitations & Considerations <span
+                                <label class="form-label" for="label"> Precautions & Limitations <span
                                         class="text-danger">*</span></label>
 
-                                <textarea class="form-control editor" name="limitation_considerations" placeholder="Enter Limitations & Considerations">{{ $value }}</textarea>
+                                <textarea class="form-control editor" name="precaution_limitations" placeholder="Enter Precautions & Limitations">{{ $value }}</textarea>
 
-                                @error('limitation_considerations')
+                                @error('precaution_limitations')
                                     <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -189,7 +189,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <?php
                                 $value = old('conclusion', $item ? $item->conclusion : null);
-
+                                
                                 ?>
                                 <label class="form-label" for="label"> Conclusion <span
                                         class="text-danger">*</span></label>

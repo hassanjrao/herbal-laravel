@@ -49,7 +49,7 @@ class AdminItemController extends Controller
             'usage' => 'nullable',
             'health_benefits' => 'nullable',
             'research_support_citations' => 'nullable',
-            'limitation_considerations' => 'nullable',
+            'precaution_limitations' => 'nullable',
             'conclusion' => 'nullable'
         ]);
 
@@ -61,7 +61,7 @@ class AdminItemController extends Controller
             'usage' => $request->usage,
             'health_benefits' => $request->health_benefits,
             'research_support_citations' => $request->research_support_citations,
-            'limitation_considerations' => $request->limitation_considerations,
+            'precaution_limitations' => $request->precaution_limitations,
             'conclusion' => $request->conclusion,
         ]);
 
@@ -111,7 +111,7 @@ class AdminItemController extends Controller
             'usage' => 'nullable',
             'health_benefits' => 'nullable',
             'research_support_citations' => 'nullable',
-            'limitation_considerations' => 'nullable',
+            'precaution_limitations' => 'nullable',
             'conclusion' => 'nullable'
         ]);
 
@@ -122,7 +122,7 @@ class AdminItemController extends Controller
         $item->usage = $request->usage;
         $item->health_benefits = $request->health_benefits;
         $item->research_support_citations = $request->research_support_citations;
-        $item->limitation_considerations = $request->limitation_considerations;
+        $item->precaution_limitations = $request->precaution_limitations;
         $item->conclusion = $request->conclusion;
 
         if ($request->hasFile('image')) {

@@ -17,7 +17,7 @@ class SearchController extends Controller
                     ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(`usage`, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"])
                     ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(health_benefits, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"])
                     ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(research_support_citations, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"])
-                    ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(limitation_considerations, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"])
+                    ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(precaution_limitations, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"])
                     ->orWhereRaw("LOWER(REPLACE(REGEXP_REPLACE(conclusion, '<[^>]*>', ''), '&nbsp;', '')) LIKE ?", ["%" . strtolower($query) . "%"]);
             })
             ->orWhereHas('tags', function ($q) use ($query) {

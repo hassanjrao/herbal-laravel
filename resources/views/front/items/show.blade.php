@@ -108,29 +108,33 @@
 
             <!-- Description -->
             <p class="mt-4">
-                <h3 class="mb-2">Description:</h3>
-                {!! $item->description !!}
+            <h3 class="mb-2">Description:</h3>
+            {!! $item->description !!}
             </p>
             <hr>
             <p class="mt-4">
-                <h3 class="mb-2">Usage:</h3>
-                {!! $item->usage !!}
+            <h3 class="mb-2">Usage:</h3>
+            {!! $item->usage !!}
             </p>
-            <hr><p class="mt-4">
-                <h3 class="mb-2">Health Benefits:</h3>
-                {!! $item->health_benefits !!}
+            <hr>
+            <p class="mt-4">
+            <h3 class="mb-2">Health Benefits:</h3>
+            {!! $item->health_benefits !!}
             </p>
-            <hr><p class="mt-4">
-                <h3 class="mb-2">Research Support & Citations:</h3>
-                {!! $item->research_support_citations !!}
+            <hr>
+            <p class="mt-4">
+            <h3 class="mb-2">Research Support & Citations:</h3>
+            {!! $item->research_support_citations !!}
             </p>
-            <hr><p class="mt-4">
-                <h3 class="mb-2">Limitations & Considerations:</h3>
-                {!! $item->limitation_considerations !!}
+            <hr>
+            <p class="mt-4">
+            <h3 class="mb-2">Precautions & Limitations:</h3>
+            {!! $item->precaution_limitations !!}
             </p>
-            <hr><p class="mt-4">
-                <h3 class="mb-2">Conclusion:</h3>
-                {!! $item->conclusion !!}
+            <hr>
+            <p class="mt-4">
+            <h3 class="mb-2">Conclusion:</h3>
+            {!! $item->conclusion !!}
             </p>
             <hr>
         </section>

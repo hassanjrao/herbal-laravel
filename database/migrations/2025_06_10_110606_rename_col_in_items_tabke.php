@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsInItemsTable extends Migration
+class RenameColInItemsTabke extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,7 @@ class AddFieldsInItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->longText('usage')->nullable();
-            $table->longText('health_benefits')->nullable();
-            $table->longText('research_support_citations')->nullable();
-            $table->longText('precaution_limitations')->nullable();
-            $table->longText('conclusion')->nullable();
+            $table->renameColumn('precaution_limitations', 'precaution_limitations');
         });
     }
 
