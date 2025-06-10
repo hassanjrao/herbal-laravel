@@ -368,20 +368,53 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            ClassicEditor.create(document.querySelector('#editor'), {
-                ckfinder: {
-                    uploadUrl: '{{ route('ckeditor.upload') }}'
-                },
-                toolbar: ['heading','bold', 'italic', 'link', 'uploadImage', 'blockQuote', 'undo', 'redo'],
-                image: {
-                    toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
-                }
-            }).then(editor => {
-                editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-                    return new CustomUploadAdapter(loader);
-                };
-            }).catch(error => {
-                console.error('Error initializing CKEditor:', error);
+            const editors = document.querySelectorAll('#editor, .editor'); // Supports ID and class
+
+            editors.forEach(element => {
+                ClassicEditor.create(element, {
+                    ckfinder: {
+                        uploadUrl: '{{ route('ckeditor.upload') }}'
+                    },
+                    toolbar: [
+                        'heading', 'bold', 'italic', 'link', 'uploadImage', 'blockQuote',
+                        'undo', 'redo'
+                    ],
+                    heading: {
+                        options: [{
+                                model: 'paragraph',
+                                title: 'Paragraph',
+                                class: 'ck-heading_paragraph'
+                            },
+                            {
+                                model: 'heading1',
+                                view: 'h1',
+                                title: 'Heading 1',
+                                class: 'ck-heading_heading1'
+                            },
+                            {
+                                model: 'heading2',
+                                view: 'h2',
+                                title: 'Heading 2',
+                                class: 'ck-heading_heading2'
+                            },
+                            {
+                                model: 'heading3',
+                                view: 'h3',
+                                title: 'Heading 3',
+                                class: 'ck-heading_heading3'
+                            }
+                        ]
+                    },
+                    image: {
+                        toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
+                    }
+                }).then(editor => {
+                    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                        return new CustomUploadAdapter(loader);
+                    };
+                }).catch(error => {
+                    console.error('Error initializing CKEditor:', error);
+                });
             });
 
             // Custom Upload Adapter for CSRF Token
@@ -391,38 +424,35 @@
                 }
 
                 upload() {
-                    return this.loader.file
-                        .then(file => new Promise((resolve, reject) => {
-                            const data = new FormData();
-                            data.append('upload', file);
-                            data.append('_token', '{{ csrf_token() }}'); // Add CSRF token
+                    return this.loader.file.then(file => new Promise((resolve, reject) => {
+                        const data = new FormData();
+                        data.append('upload', file);
+                        data.append('_token', '{{ csrf_token() }}');
 
-                            fetch('{{ route('ckeditor.upload') }}', {
-                                    method: 'POST',
-                                    body: data
-                                })
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (data && data.url) {
-                                        resolve({
-                                            default: data.url
-                                        });
-                                    } else {
-                                        reject(data.error || 'File upload failed.');
-                                    }
-                                })
-                                .catch(error => {
-                                    reject(error.message || 'File upload error.');
-                                });
-                        }));
+                        fetch('{{ route('ckeditor.upload') }}', {
+                                method: 'POST',
+                                body: data
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data && data.url) {
+                                    resolve({
+                                        default: data.url
+                                    });
+                                } else {
+                                    reject(data.error || 'File upload failed.');
+                                }
+                            })
+                            .catch(error => {
+                                reject(error.message || 'File upload error.');
+                            });
+                    }));
                 }
 
                 abort() {
-                    // Handle abort if necessary
+                    // Optional: Handle abort logic if needed
                 }
             }
-
-
         });
     </script>
 

@@ -107,9 +107,32 @@
 
 
             <!-- Description -->
-            <p class="mt-3">
+            <p class="mt-4">
+                <h3 class="mb-2">Description:</h3>
                 {!! $item->description !!}
             </p>
+            <hr>
+            <p class="mt-4">
+                <h3 class="mb-2">Usage:</h3>
+                {!! $item->usage !!}
+            </p>
+            <hr><p class="mt-4">
+                <h3 class="mb-2">Health Benefits:</h3>
+                {!! $item->health_benefits !!}
+            </p>
+            <hr><p class="mt-4">
+                <h3 class="mb-2">Research Support & Citations:</h3>
+                {!! $item->research_support_citations !!}
+            </p>
+            <hr><p class="mt-4">
+                <h3 class="mb-2">Limitations & Considerations:</h3>
+                {!! $item->limitation_considerations !!}
+            </p>
+            <hr><p class="mt-4">
+                <h3 class="mb-2">Conclusion:</h3>
+                {!! $item->conclusion !!}
+            </p>
+            <hr>
         </section>
 
         <div class="entry_content">

@@ -115,6 +115,95 @@
                                 @enderror
                             </div>
 
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <?php
+                                $value = old('usage', $item ? $item->usage : null);
+
+                                ?>
+                                <label class="form-label" for="label"> Usage <span class="text-danger">*</span></label>
+
+                                <textarea class="form-control editor" name="usage" placeholder="Enter usage">{{ $value }}</textarea>
+
+                                @error('usage')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <?php
+                                $value = old('health_benefits', $item ? $item->health_benefits : null);
+
+                                ?>
+                                <label class="form-label" for="label"> Health Benefits <span
+                                        class="text-danger">*</span></label>
+
+                                <textarea class="form-control editor" name="health_benefits" placeholder="Enter Health Benefits">{{ $value }}</textarea>
+
+                                @error('health_benefits')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <?php
+                                $value = old('research_support_citations', $item ? $item->research_support_citations : null);
+
+                                ?>
+                                <label class="form-label" for="label"> Research Support & Citations <span
+                                        class="text-danger">*</span></label>
+
+                                <textarea class="form-control editor" name="research_support_citations"
+                                    placeholder="Enter Research Support & Citations">{{ $value }}</textarea>
+
+                                @error('research_support_citations')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <?php
+                                $value = old('limitation_considerations', $item ? $item->limitation_considerations : null);
+
+                                ?>
+                                <label class="form-label" for="label"> Limitations & Considerations <span
+                                        class="text-danger">*</span></label>
+
+                                <textarea class="form-control editor" name="limitation_considerations" placeholder="Enter Limitations & Considerations">{{ $value }}</textarea>
+
+                                @error('limitation_considerations')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <?php
+                                $value = old('conclusion', $item ? $item->conclusion : null);
+
+                                ?>
+                                <label class="form-label" for="label"> Conclusion <span
+                                        class="text-danger">*</span></label>
+
+                                <textarea class="form-control editor" name="conclusion" placeholder="Enter Conclusion">{{ $value }}</textarea>
+
+                                @error('conclusion')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                             <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                 <label class="form-label" for="tagInput">Tags</label>
 

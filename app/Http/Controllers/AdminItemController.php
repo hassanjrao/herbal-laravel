@@ -46,6 +46,11 @@ class AdminItemController extends Controller
             'description' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'usage' => 'nullable',
+            'health_benefits' => 'nullable',
+            'research_support_citations' => 'nullable',
+            'limitation_considerations' => 'nullable',
+            'conclusion' => 'nullable'
         ]);
 
         Item::create([
@@ -53,6 +58,11 @@ class AdminItemController extends Controller
             'description' => $request->description,
             'category_id' => $request->category_id,
             'image_path' => $request->file('image')->store('items'),
+            'usage' => $request->usage,
+            'health_benefits' => $request->health_benefits,
+            'research_support_citations' => $request->research_support_citations,
+            'limitation_considerations' => $request->limitation_considerations,
+            'conclusion' => $request->conclusion,
         ]);
 
         return redirect()->route('admin.items.index')->withToastSuccess('item created successfully.');
@@ -98,12 +108,22 @@ class AdminItemController extends Controller
             'description' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'usage' => 'nullable',
+            'health_benefits' => 'nullable',
+            'research_support_citations' => 'nullable',
+            'limitation_considerations' => 'nullable',
+            'conclusion' => 'nullable'
         ]);
 
         $item = Item::findOrFail($id);
         $item->name = $request->name;
         $item->description = $request->description;
         $item->category_id = $request->category_id;
+        $item->usage = $request->usage;
+        $item->health_benefits = $request->health_benefits;
+        $item->research_support_citations = $request->research_support_citations;
+        $item->limitation_considerations = $request->limitation_considerations;
+        $item->conclusion = $request->conclusion;
 
         if ($request->hasFile('image')) {
             $item->image_path = $request->file('image')->store('items');
