@@ -183,7 +183,7 @@
 
     <!--footer area start-->
     <footer class="footer_widgets">
-        <div class="footer_bottom" style="background: #40A944; padding: 30px;">
+        <div class="footer_bottom" style="background:#f4f4f4; padding: 30px;">
             <div class="row text-center p-3">
                 <div class="col-sm-12">
                     <div class="rich-out">
