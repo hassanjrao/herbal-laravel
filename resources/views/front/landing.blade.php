@@ -19,9 +19,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="slider_content">
-                                    <h1>{{ $slider->main_heading }}</h1>
-                                    <h2>{{ $slider->sub_heading }}</h2>
+                                <div id="slider_content" class="slider_content transition-colors duration-1000">
+                                    <h2 style="font-weight: bold">{{ $slider->main_heading }}</h1>
+                                    <h3 style="font-weight: bold; text-transform: uppercase; font-size: 20px">{{ $slider->sub_heading }}</h2>
                                     <p>
                                        {{ $slider->description }}
                                     </p>
@@ -114,5 +114,7 @@
             </div>
         </div>
     </div>
+
+    
     <!--product area end-->
 @endsection

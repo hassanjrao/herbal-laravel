@@ -67,8 +67,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <h3>Blog</h3>
+                    <div class="breadcrumb_content pt-5">
+                        <h3 class="mt-5">Blog</h3>
                         <ul>
                             <li><a href="{{ route('landing') }}">home</a></li>
                             <li><a href="{{ route('blogs.index') }}">Blog</a></li>

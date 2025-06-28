@@ -71,8 +71,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <h3>{{ $item->category->name }}</h3>
+                    <div class="breadcrumb_content pt-5">
+                        <h3 class="mt-5">{{ $item->category->name }}</h3>
                         <ul>
                             <li><a href="{{ route('landing') }}">home</a></li>
                             <li><a href="{{ route('categories.show', $item->category->id) }}">{{ $item->category->name }}</a>

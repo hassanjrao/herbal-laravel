@@ -60,7 +60,7 @@ body {
     font-style: normal;
     font-weight: 400;
     visibility: visible;
-    font-family: "Work Sans", sans-serif;
+    font-family: "Giga Sans", sans-serif;
     color: #222222;
     letter-spacing: 0.02em;
 }
@@ -720,6 +720,7 @@ textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
     .main_header {
         padding: 25px 0;
+        background: none !important;
     }
 }
 
@@ -2976,7 +2977,7 @@ textarea:-ms-input-placeholder {
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
-    height: 550px;
+    height: 768px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -3920,9 +3921,9 @@ textarea:-ms-input-placeholder {
 }
 
 .section_title h2 {
-    font-size: 32px;
+    font-size: 45px;
     line-height: 35px;
-    font-weight: 500;
+    font-weight: bold;
     display: inline-block;
     margin-bottom: 0;
     text-transform: capitalize;
@@ -6430,7 +6431,7 @@ textarea:-ms-input-placeholder {
 
 .footer_bottom {
     padding: 29px 0;
-    background: #40A944;
+    background: #222021;
 }
 
 @media only screen and (max-width: 767px) {
@@ -6528,7 +6529,7 @@ textarea:-ms-input-placeholder {
 .breadcrumbs_area {
     background: url(../img/bg/banner18.jpg) no-repeat 0 0;
     background-size: cover;
-    height: 200px;
+    height: 350px;
     display: flex;
     align-items: center;
 }
@@ -6536,7 +6537,7 @@ textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
     .breadcrumbs_area {
         background-position: 16%;
-        height: 105px;
+        height: 165px;
     }
 }
 
@@ -13722,3 +13723,17 @@ textarea:-ms-input-placeholder {
     background-color: #f8f9fa;
     border-color: #dee2e6;
 }
+
+ .slider_content {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    animation: bgFade 1s ease-in forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes bgFade {
+    to {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }

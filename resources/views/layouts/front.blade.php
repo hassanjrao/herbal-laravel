@@ -56,7 +56,7 @@
     <div class="off_canvars_overlay">
 
     </div>
-    <div class="offcanvas_menu">
+    <div class="offcanvas_menu" style="z-index: 1001;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -103,7 +103,7 @@
     <!--offcanvas menu area end-->
 
     <header>
-        <div class="main_header">
+        <div class="main_header" style="background: rgba(255, 255, 255, 0.3); position: absolute; top: 0; left: 0; right: 0; z-index: 1000;">
             <div class="header_middle">
                 <div class="container">
                     <div class="row align-items-center">
@@ -183,19 +183,43 @@
 
     <!--footer area start-->
     <footer class="footer_widgets">
+        <div class="footer_bottom" style="background: #40A944; padding: 30px;">
+            <div class="row text-center p-3">
+                <div class="col-sm-12">
+                    <div class="rich-out">
+                        <h3 style="font-weight:bold">REACH OUT TO US</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>
+                            Sed do eiusmod tempor incididunt ut
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 mt-3">
+                    <div class="lan-footer-content">
+                        <h2>
+                            <img src="https://www.bointernational.net/lp/private-label/assets/images/address-icon.png" class="img-responsive"> 
+                            Address
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
 
-        <div class="footer_bottom">
+            </div>
+        </div>
+
+        
+        <div class="footer_bottom text-center">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-7">
+                    <div class="col-12">
                         <div class="copyright_area">
                             <p>Copyright © {{ date('Y') }} <a
                                     href="{{ route('landing') }}">{{ config('app.name') }}</a>. All Rights Reserved.
                             </p>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5">
-
                     </div>
                 </div>
             </div>
