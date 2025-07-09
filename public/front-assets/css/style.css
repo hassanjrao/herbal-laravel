@@ -2982,13 +2982,13 @@ textarea:-ms-input-placeholder {
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
     .single_slider {
-        height: 386px;
+        height: 668px;
     }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .single_slider {
-        height: 350px;
+        height: 550px;
     }
 }
 
