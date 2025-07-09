@@ -3000,7 +3000,7 @@ textarea:-ms-input-placeholder {
 
 @media only screen and (max-width: 767px) {
     .single_slider {
-        background-position: 5%;
+        /* background-position: 5%; */
         height: 280px;
     }
 }
