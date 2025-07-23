@@ -150,7 +150,7 @@
 
     <!--product area start-->
     <div class="product_area product_deals mt-5 mb-65">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section_title">
@@ -161,7 +161,7 @@
             <div class="product_container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="product_carousel product_column5 owl-carousel">
+                        <div class="product_carousel product_column4 owl-carousel">
                             @foreach ($items as $item)
                                 <article class="single_product">
                                     <figure>
