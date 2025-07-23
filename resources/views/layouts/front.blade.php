@@ -15,6 +15,11 @@
     <!--bootstrap min css-->
     <link rel="stylesheet" href="{{ asset('front-assets/css/bootstrap.min.css') }}">
     <!--owl carousel min css-->
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    
+
     <link rel="stylesheet" href="{{ asset('front-assets/css/owl.carousel.min.css') }}">
     <!--slick min css-->
     <link rel="stylesheet" href="{{ asset('front-assets/css/slick.css') }}">
@@ -268,7 +273,9 @@
     <script src="{{ asset('front-assets/js/main.js') }}"></script>
 
 
-
+    <!-- Bootstrap JS (for Carousel functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
 
