@@ -6,7 +6,9 @@
     $categories = \App\Models\Category::all();
     $items = \App\Models\Item::latest()->take(8)->get();
     $sliders = \App\Models\Slider::latest()->get();
-    $blogs = \App\Models\Blog::latest()->get();
+    $blogs = \App\Models\Blog::latest()->take(3)->get();
+    $blogsRandom = \App\Models\Blog::inRandomOrder()->take(3)->get();
+
 
 @endphp
 
@@ -43,7 +45,7 @@
             <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel"  style="border-radius: 5px; overflow: hidden;">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
-                    @foreach ($blogs as $index => $blog)
+                    @foreach ($blogsRandom as $index => $blog)
                         <button type="button"
                                 data-bs-target="#blogCarousel"
                                 data-bs-slide-to="{{ $index }}"
@@ -55,7 +57,7 @@
 
                 <!-- Carousel Items -->
                 <div class="carousel-inner">
-                    @foreach ($blogs as $index => $blog)
+                    @foreach ($blogsRandom as $index => $blog)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <a href="{{ route('blogs.show', $blog->id) }}" class="text-decoration-none">
                                 <div class="position-relative" style="height: 500px; overflow: hidden;">
