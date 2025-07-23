@@ -106,7 +106,7 @@
                 <div class="col-12">
                     <div class="product_header">
                         <div class="section_title">
-                            <h2>- FEATURED POSTS / PAGES -</h2>
+                            <h2>FEATURED POSTS / PAGES</h2>
                         </div>
                     </div>
                 </div>
