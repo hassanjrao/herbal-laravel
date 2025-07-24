@@ -14,20 +14,24 @@
 
 @section('content')
     <!--slider area start-->
-    <section class="slider_section">
+    {{-- <section class="slider_section">
         <div class="slider_area owl-carousel">
-            @foreach ($sliders as $slider)
-                <div class="single_slider d-flex align-items-center"
-                    data-bgimg="{{ $slider->image_url }}">
+            @foreach ($blogsRandom as $b)
+                 <div class="single_slider d-flex align-items-center"
+                    data-bgimg="{{ $b->image_url }}">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div id="slider_content" class="slider_content transition-colors duration-1000">
-                                    <h2 style="font-weight: bold">{{ $slider->main_heading }}</h1>
-                                    <h3 style="font-weight: bold; text-transform: uppercase; font-size: 20px">{{ $slider->sub_heading }}</h2>
-                                    <p>
-                                       {{ $slider->description }}
+                                    <div class="mb-2 d-flex align-items-center gap-2 small">
+                                        <span>• {{ \Carbon\Carbon::parse($b->created_at)->diffForHumans() }}</span>
+                                    </div>
+                                    <h2 style="font-weight: bold">{{ $b->title }}</h1>
+
+                                       <p class="card-text text-muted" style="font-size: 0.9rem; line-height: 1.5; max-height: 4.5em; overflow: hidden;">
+                                        {!! \Illuminate\Support\Str::limit(strip_tags($b->description), 150) !!}
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -36,13 +40,13 @@
             @endforeach
 
         </div>
-    </section>
+    </section> --}}
     <!--slider area end-->
 
     <!-- Blog Carousel Section -->
-    <div class="product_area mt-5 mb-64">
-        <div class="container">
-            <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel"  style="border-radius: 5px; overflow: hidden;">
+    <div class="product_area mb-64 p-0">
+        <div class="container-fluid p-0">
+            <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
                     @foreach ($blogsRandom as $index => $blog)
@@ -60,10 +64,11 @@
                     @foreach ($blogsRandom as $index => $blog)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <a href="{{ route('blogs.show', $blog->id) }}" class="text-decoration-none">
-                                <div class="position-relative" style="height: 500px; overflow: hidden;">
-                                    <img src="{{ $blog->image_url }}" class="d-block w-100 h-100 object-fit-cover" alt="{{ $blog->title }}">
+                                <div class="position-relative blog-slide" style="overflow: hidden; background-image: url('{{ $blog->image_url }}')">
+                                    {{-- <img src="{{ $blog->image_url }}" class="d-block w-100 h-100 object-fit-cover" alt="{{ $blog->title }}"> --}}
+                                    {{-- <img src="" class="d-block" width="100%" alt="{{ $blog->title }}"> --}}
 
-                                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-end p-4 text-white">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4 text-white">
                                         <div class="mb-2 d-flex align-items-center gap-2 small">
                                             {{-- <span class="badge bg-primary">BI</span> --}}
                                             {{-- <span>{{ Business Insider }}</span> --}}
